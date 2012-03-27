@@ -7,6 +7,8 @@ How to use
 Drop these files into your project, and call the static method. Here is a sample, which assumes that you have a UIImage called 'image' and an enum FilterType called 'filterType' already declared:
 
     CGImageRef imageRef = [image CGImage];
+    CGSize imageSize = CGSizeMake(CGImageGetWidth(imageRef), CGImageGetHeight(imageRef));
+    CGRect imageRect = CGRectMake(0, 0, imageSize.width, imageSize.height);
     CGContextRef bitmap = CGBitmapContextCreate(NULL,
                                                 imageSize.width, imageSize.height,
                                                 CGImageGetBitsPerComponent(imageRef),
