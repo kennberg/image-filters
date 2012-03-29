@@ -27,7 +27,7 @@ Drop these files into your project, and call the static method. Here is a sample
             for (c = 0; c < 3; c++)
                 color[c] = data[i + 2 - c] / 255.;
             
-            if (filterType != NO_EFFECT)
+            if (filterType != FT_NONE)
                 [ImageFilters applyFilterToPixel:filterType withPixel:&color];
             
             for (c = 0; c < 3; c++)
