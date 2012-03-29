@@ -11,8 +11,14 @@ enum FilterType {
     FT_BLACKANDWHITE,
     FT_RETRO,
     FT_VINTAGE,
+    FT_SEPIA,
+    FT_POSTERIZE,
     MAX_FILTERTYPES
 };
+
+#ifndef CLAMP
+#define CLAMP(x, minx, maxx) ((x) < (minx) ? (minx) : ((x) > (maxx) ? (maxx) : (x)))
+#endif
 
 @interface ImageFilters : NSObject
 

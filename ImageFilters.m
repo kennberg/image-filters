@@ -59,6 +59,20 @@
             break;
         }
             
+        case FT_SEPIA: {
+            color[0][0] = CLAMP(color[0][0] * 0.393 + color[0][1] * 0.769 + color[0][2] * 0.189, 0., 1.);
+            color[0][1] = CLAMP(color[0][0] * 0.349 + color[0][1] * 0.686 + color[0][2] * 0.168, 0., 1.);
+            color[0][2] = CLAMP(color[0][0] * 0.272 + color[0][1] * 0.534 + color[0][2] * 0.131, 0., 1.);
+            break;
+        }
+            
+        case FT_POSTERIZE: {
+            const double step = 25.;
+            for (c = 0; c < 3; c++)
+                color[0][c] = CLAMP(floor(color[0][c] * 255. / step) / 255. * step, 0, 1);
+            break;
+        }
+            
         default:
             break;
     }
